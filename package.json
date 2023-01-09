@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "numble challenge",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/server.js"
+    "devServer": "nodemon",
+    "devWebpack": "webpack"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
@@ -20,6 +22,7 @@
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "mini-css-extract-plugin": "^2.7.2",
     "nodemon": "^2.0.20",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",

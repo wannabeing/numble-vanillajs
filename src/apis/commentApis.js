@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const baseUrl = "http://43.201.103.199";
+const { API_BASEURL: baseUrl } = process.env;
 
 // 🚀 댓글 생성하기
 export const createCommentAPI = async (commentInfo) => {

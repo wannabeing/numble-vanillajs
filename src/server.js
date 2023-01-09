@@ -1,6 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import methodOverride from "method-override";
+import "dotenv/config"; // dotenv 사용
 
 // Import Routers
 import globalRouter from "./routers/globalRouter";

@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const baseUrl = "http://43.201.103.199";
+const { API_BASEURL: baseUrl } = process.env;
 
 // 🚀 글 리스트 가져오기
 export const getListAPI = async () => {
