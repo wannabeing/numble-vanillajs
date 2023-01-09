@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 25px;
+
+  .header__logo {
+    color: $baseFc;
+    font-size: 25px;
+  }
+  .header__title {
+    font-weight: bold;
+  }
+  .header__create {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: $baseBg;
+    border-radius: 14px;
+    background-color: $baseFc;
+  }
+}

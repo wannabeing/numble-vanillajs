@@ -1,0 +1,32 @@
+// Config
+@import "./config/_reset";
+@import "./config/_variables";
+
+// Components
+@import "./components/header.scss";
+
+// Screens
+@import "./screens/create.scss";
+@import "./screens/detail.scss";
+@import "./screens/edit.scss";
+@import "./screens/home.scss";
+
+body {
+  background-color: $baseBg;
+  color: $baseFc;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+main {
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: white;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
