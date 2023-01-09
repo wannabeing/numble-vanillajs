@@ -1,0 +1,8 @@
+mixin mixinPostList(post)
+    div 
+        img(src=post.image alt="이미지 주소" width="400" height="400")
+        h4
+            a(href=`post/${post.postId}`)=post.title 
+        ul 
+            li 작성일: #{post.createdAt}
+            li 컨텐츠: #{post.content}

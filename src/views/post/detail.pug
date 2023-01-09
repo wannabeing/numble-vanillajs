@@ -1,0 +1,20 @@
+extends ../inheritance/base.pug
+include ../mixins/commentList.pug
+
+block body 
+    img(src=post.image, alt="이미지 주소")
+    p=post.postId 
+    p=post.title 
+    p=post.content 
+    p=post.createdAt
+    span 밑에는 댓글입니다.
+    each comment in comments
+        +mixinCommentList(comment, post.postId)
+    else 
+        h1 댓글이 없네용 ㅇ_ㅇ
+    a(href=`${post.postId}/edit`) 수정
+    form(method="POST" action=`/post/${post.postId}/delete?_method=DELETE`)
+        input(type="submit" value="삭제")
+    form(method="POST" action=`/post/${post.postId}/comment/create`) 
+        input(type="text" name="comment" id="comment")
+        input(type="submit" value="댓글입력")

@@ -1,0 +1,11 @@
+extends ../inheritance/base.pug
+
+block body 
+    img(src=editPost.image alt="이미지 주소" width="400" height="400")
+    form(method="POST" action=`/post/${editPost.postId}/edit?_method=PATCH`) 
+        input(type="text" id="image" value=editPost.image)
+        label(for="title") 글 제목
+        input(type="text" id="title" name="title" value=editPost.title)
+        label(for="content") 글 내용
+        input(type="text" id="content" name="content" value=editPost.content)
+        input(type="submit" value="글 수정하기")

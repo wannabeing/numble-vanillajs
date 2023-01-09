@@ -1,0 +1,10 @@
+extends ../inheritance/base.pug
+include ../mixins/postList.pug
+
+block body 
+    each post in posts
+        +mixinPostList(post)
+    else 
+        h1 글이 없네용 ㅇ_ㅇ
+
+            

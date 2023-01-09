@@ -1,0 +1,10 @@
+extends ../inheritance/base.pug
+
+block body 
+    button 이미지 추가하기
+    form(method="post") 
+        label(for="title") 글 제목
+        input(type="text" id="title" name="title")
+        label(for="title") 글 내용
+        input(type="text" id="content" name="content")
+        input(type="submit" value="글 작성하기")

@@ -1,0 +1,4 @@
+mixin mixinCommentList(comment, postId)
+    p=comment.content
+    form(method="POST" action=`/post/${post.postId}/comment/${comment.commentId}/delete?_method=DELETE`) 
+        input(type="submit" value="댓글 삭제")
