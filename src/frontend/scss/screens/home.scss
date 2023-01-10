@@ -1,5 +1,7 @@
 .home__grid {
+  width: 100%;
+  text-align: center;
   display: grid;
   gap: 50px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }

@@ -1,0 +1,99 @@
+.postDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  color: black;
+
+  .postDetail__img {
+    width: 100%;
+    max-width: 480px;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 20px;
+  }
+  .postDetail__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    max-width: 480px;
+
+    .postDetail__title {
+      font-size: 26px;
+      color: $baseFc;
+    }
+    .postDetail__time {
+      display: flex;
+      justify-content: end;
+      color: gray;
+      padding-bottom: 15px;
+      border-bottom: 2px solid $inputBase;
+    }
+    .postDetail__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      display: block;
+      font-size: 20px;
+      padding: 15px 0;
+      border-bottom: 2px solid $inputBase;
+      word-wrap: break-word;
+
+      .postDetail__btns {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        color: $baseBg;
+        margin-bottom: 35px;
+
+        .postDetaill__btn {
+          background-color: $baseFc;
+          padding: 10px;
+          border-radius: 7px;
+          margin: 0 5px;
+        }
+        form {
+          display: none;
+        }
+        label {
+          cursor: pointer;
+        }
+      }
+
+      .postDetail__commentExplain {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        i {
+          color: $baseFc;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  .postDetaill__commentsList {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+  }
+  .postDetail__commentForm {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    max-width: 480px;
+    margin-top: 15px;
+    form {
+      display: flex;
+      .postDetail__commentForm__submit {
+        margin-left: 10px;
+        width: 30%;
+      }
+    }
+  }
+}

@@ -6,8 +6,10 @@ block body
         each post in posts
             +mixinPostList(post)
         else 
-            h1 글이 없네용 ㅇ_ㅇ
+            span.home__empty 게시글이 존재하지 않습니다. ❌
+            span.home__empty 게시글이 존재하지 않습니다. ❌
     
     script(src="/static/js/main.js") 
+    
 
             

@@ -1,4 +1,11 @@
 mixin mixinCommentList(comment, postId)
-    p=comment.content
-    form(method="POST" action=`/post/${post.postId}/comment/${comment.commentId}/delete?_method=DELETE`) 
-        input(type="submit" value="댓글 삭제")
+    .comments-mixin
+        .comments-mixin__text
+            span=comment.content
+        .comments-mixin__del 
+            label(for="commentDelte")  
+                i.fa-solid.fa-trash
+        // hidden
+        .comments-mixin__form
+            form(id="commentDelte" name="commentDelte" method="POST" action=`/post/${post.postId}/comment/${comment.commentId}/delete?_method=DELETE`) 
+                input(type="submit" value="댓글 삭제")

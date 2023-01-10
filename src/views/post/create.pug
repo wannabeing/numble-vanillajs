@@ -1,10 +1,16 @@
 extends ../inheritance/base.pug
 
 block body 
-    button 이미지 추가하기
-    form(method="post") 
-        label(for="title") 글 제목
-        input(type="text" id="title" name="title")
-        label(for="title") 글 내용
-        input(type="text" id="content" name="content")
-        input(type="submit" value="글 작성하기")
+    .postCreate
+        button.postCreate__imgBtn  랜덤 이미지 추가하기
+        form.postCreate__form(method="post") 
+            .postCreate__title
+                label(for="title") 글 제목
+                img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)
+                input(type="text" id="title" name="title" placeholder="글 제목을 입력해주세요." required)
+            .postCreate__content
+                label(for="title") 글 내용
+                img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)
+                textarea(name="content", id="content", cols="30", rows="10" placeholder="글 내용을 입력해주세요." required) 
+            .postCreate__submit
+                input(type="submit" value="글 작성하기")

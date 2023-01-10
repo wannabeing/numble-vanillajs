@@ -1,0 +1,22 @@
+.comments-mixin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  font-size: 14px;
+  border-bottom: 1px solid $inputBorder;
+  .comments-mixin__text {
+    font-size: 18px;
+    padding: 5px;
+  }
+  .comments-mixin__del {
+    label {
+      cursor: pointer;
+      color: #c23616;
+    }
+  }
+  .comments-mixin__form {
+    display: none;
+  }
+}

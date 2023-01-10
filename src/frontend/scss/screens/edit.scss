@@ -1,0 +1,36 @@
+.editPost {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+
+  .editPost__img {
+    width: 100%;
+    max-width: 480px;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 20px;
+  }
+
+  .editPost__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    padding-bottom: 50px;
+
+    input {
+      width: 100%;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+
+    .editPost__title {
+      margin: 30px 0;
+    }
+  }
+}

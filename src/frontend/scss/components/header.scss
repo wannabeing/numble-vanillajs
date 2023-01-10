@@ -5,21 +5,23 @@ header {
   max-width: 640px;
   width: 100%;
   margin: 0 auto;
-  padding: 10px 25px;
+  padding: 20px 0px;
+  background-color: white;
+  border-bottom: 2px solid $inputBorder;
 
   .header__logo {
     color: $baseFc;
     font-size: 25px;
+    margin-left: 15px;
   }
   .header__title {
     font-weight: bold;
   }
   .header__create {
     padding: 10px;
-    font-size: 14px;
-    font-weight: bold;
     color: $baseBg;
-    border-radius: 14px;
+    border-radius: 7px;
     background-color: $baseFc;
+    margin-right: 15px;
   }
 }
