@@ -11,7 +11,7 @@ module.exports = {
   ],
   entry: {
     main: "./src/frontend/js/main.js",
-    simpleCreated: "./src/frontend/js/simpleCreated.js",
+    simpleCreatedAt: "./src/frontend/js/simpleCreatedAt.js",
   },
   output: {
     filename: "js/[name].js",

@@ -7,7 +7,7 @@ block body
         .postDetail__data
             span.postDetail__title=post.title 
             .postDetail__time 
-                span=post.createdAt
+                span#createdAt=post.createdAt
             .postDetail__content
                 span=post.content 
                 .postDetail__btns
@@ -31,5 +31,5 @@ block body
                 +mixinCommentList(comment, post.postId)
             else 
                 h1 댓글이 없네용 ㅇ_ㅇ
-        
-        
+block scripts 
+    script(src="/static/js/simpleCreatedAt.js") 
