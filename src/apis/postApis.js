@@ -29,6 +29,7 @@ export const createPostAPI = async (newPost) => {
       body: JSON.stringify(newPost),
     })
   ).json();
+  console.log(result);
   return result;
 };
 

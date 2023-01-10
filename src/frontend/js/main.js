@@ -1,3 +1,1 @@
-import "../scss/styles.scss";
-
-console.log("HELLO WEBPACK@@");
+import "../scss/styles.scss"; // scss

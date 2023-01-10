@@ -73,7 +73,8 @@ export const handlePostCreate = async (req, res) => {
   if (isComplete(code)) {
     return res.redirect("/");
   } else {
-    return res.send("404");
+    res.write("<script>alert('not allowed')</script>");
+    return res.write('<script>window.location="/post/create"</script>');
   }
 };
 // [🌐 GET] 글 수정

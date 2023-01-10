@@ -13,7 +13,11 @@ input {
   color: $inputBase;
   width: 90%;
   &::placeholder {
-    color: $inputBorder;
+    color: gray;
+  }
+  &:disabled {
+    background-color: $inputBorder;
+    cursor: not-allowed;
   }
 }
 input[type="submit"] {
@@ -24,6 +28,10 @@ input[type="submit"] {
   cursor: pointer;
   &:hover {
     background-color: rgba($color: $baseFc, $alpha: 0.9);
+  }
+  &:disabled {
+    background-color: $inputBorder;
+    cursor: not-allowed;
   }
 }
 button {
@@ -38,6 +46,10 @@ button {
   &:hover {
     background-color: rgba($color: $baseFc, $alpha: 0.9);
   }
+  &:disabled {
+    background-color: $inputBorder;
+    cursor: not-allowed;
+  }
 }
 
 textarea {
@@ -51,4 +63,7 @@ textarea {
   resize: both;
   margin-top: 15px;
   font-family: "BMJUA";
+  &::placeholder {
+    color: gray;
+  }
 }
