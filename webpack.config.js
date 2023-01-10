@@ -9,9 +9,12 @@ module.exports = {
       filename: "css/styles.css",
     }),
   ],
-  entry: "./src/frontend/js/main.js",
+  entry: {
+    main: "./src/frontend/js/main.js",
+    simpleCreated: "./src/frontend/js/simpleCreated.js",
+  },
   output: {
-    filename: "js/main.js",
+    filename: "js/[name].js",
     path: path.resolve(__dirname, "assets"),
     clean: true,
   },
