@@ -6,7 +6,7 @@ import {
   getListAPI,
   editPostAPI,
 } from "../apis/postApis";
-import { isComplete, sortDesc } from "../utils/sharedFunc";
+import { isComplete, sortDesc, displayedAt } from "../utils/utils";
 
 /* 
   📚 Call by globalRouter
@@ -24,6 +24,10 @@ export const handleGetList = async (req, res) => {
     return res.render("404", {
       titleName: "404 에러",
     });
+  }
+  // 글 리스트 생성일 수정
+  for (let i = 0; i < posts.length; i++) {
+    posts[i].createdAt = displayedAt(posts[i].createdAt);
   }
   // 글 리스트 내림차순 정렬
   const sortPosts = sortDesc(posts, "createdAt", "desc");
@@ -53,6 +57,8 @@ export const handleGetDetail = async (req, res) => {
       titleName: "404 에러",
     });
   }
+  // 상세 글 생성일 수정
+  post.createdAt = displayedAt(post.createdAt);
   // 상세 글 렌더링
   return res.render("post/detail", {
     titleName: post.title,

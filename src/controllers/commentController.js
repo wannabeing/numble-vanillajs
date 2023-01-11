@@ -1,5 +1,5 @@
 import { createCommentAPI, delCommentAPI } from "../apis/commentApis";
-import { isComplete } from "../utils/sharedFunc";
+import { isComplete } from "../utils/utils";
 
 /* 
   📚 Call by postRouter

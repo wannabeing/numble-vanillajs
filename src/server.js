@@ -24,10 +24,12 @@ server.use("/", globalRouter);
 server.use("/post", postRouter);
 // ❌ 404 Error SET
 server.use((req, res) => {
-  return res.send("404");
+  return res.render("404", {
+    titleName: "404 에러",
+  });
 });
 
 // Server Listening
 server.listen(4000, () => {
-  console.log("✅ Server is Listening : http://localhost/4000");
+  console.log("✅ Server : http://localhost/4000");
 });
