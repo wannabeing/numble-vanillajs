@@ -48,7 +48,7 @@
         justify-content: end;
         align-items: center;
         color: $baseBg;
-        margin-bottom: 35px;
+        margin: 35px 0;
 
         .postDetaill__btn {
           background-color: $baseFc;
@@ -56,6 +56,10 @@
           border-radius: 7px;
           margin: 0 5px;
         }
+        #delBtn {
+          background-color: #c23616;
+        }
+        // 글 삭제 폼 숨기기
         form {
           display: none;
         }

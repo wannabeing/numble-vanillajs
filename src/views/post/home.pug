@@ -1,7 +1,7 @@
 extends ../inheritance/base.pug
 include ../mixins/postList.pug
 
-block body 
+block body
     .home__grid
         each post in posts
             +mixinPostList(post)
@@ -11,5 +11,4 @@ block body
     
 
 block scripts 
-    script(src="/static/js/main.js") 
     script(src="/static/js/simpleCreatedAt.js") 

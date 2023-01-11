@@ -13,6 +13,7 @@ module.exports = {
     main: "./src/frontend/js/main.js",
     simpleCreatedAt: "./src/frontend/js/simpleCreatedAt.js",
     createPost: "./src/frontend/js/createPost.js",
+    detailPost: "./src/frontend/js/detailPost.js",
   },
   output: {
     filename: "js/[name].js",

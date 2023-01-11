@@ -13,11 +13,8 @@ block body
                 .postDetail__btns
                     a.postDetaill__btn(href=`${post.postId}/edit`)
                         i.fa-solid.fa-file-pen
-                    label.postDetaill__btn(for="commentDel") 
+                    label(data-postId=post.postId).postDetaill__btn#delBtn(for="commentDel") 
                         i.fa-solid.fa-trash
-                    // hidden
-                    form(id="commentDel" method="POST" action=`/post/${post.postId}/delete?_method=DELETE`)
-                        input(type="submit" value="글 삭제")
                 .postDetail__commentExplain
                     span 댓글
                     i.fa-solid.fa-comment
@@ -33,3 +30,4 @@ block body
                 h1 댓글이 없네용 ㅇ_ㅇ
 block scripts 
     script(src="/static/js/simpleCreatedAt.js") 
+    script(src="/static/js/detailPost.js") 
