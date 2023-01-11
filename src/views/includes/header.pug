@@ -1,6 +1,18 @@
 header 
-    a(href="/").header__logo
-        i(title="메인 페이지로 이동하기").fa-solid.fa-house
+    if isHome
+        a(href="/").header__logo
+            i(title="메인 페이지로 이동하기").fa-solid.fa-house
+    else if isEdit
+        a(href=`/post/${editPost.postId}`).header__logo
+            i(title="원래 글로 이동하기").fa-solid.fa-arrow-left
+    else 
+        a(href="/").header__logo
+            i(title="뒤로 이동하기").fa-solid.fa-arrow-left
     h1.header__title=titleName
-    a(href="/post/create").header__create
-        i(title="글 작성하기").fa-solid.fa-pen
+    if isHome
+        a(href="/post/create").header__create
+            i(title="글 작성하기").fa-solid.fa-pen
+    else
+        a(href="/")
+            p.header__subTitle HPNY 2023
+            

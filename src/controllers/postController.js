@@ -31,6 +31,7 @@ export const handleGetList = async (req, res) => {
   return res.render("post/home", {
     titleName: "HOME",
     posts: sortPosts,
+    isHome: true,
   });
 };
 
@@ -113,6 +114,7 @@ export const handleGetEdit = async (req, res) => {
   return res.render("post/edit", {
     titleName: `(수정중) ${editPost.title}`,
     editPost,
+    isEdit: true,
   });
 };
 // [✅ PATCH] 글 수정
