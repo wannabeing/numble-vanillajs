@@ -7,7 +7,7 @@ import {
   editPostAPI,
 } from "../apis/postApis";
 
-import { isComplete } from "../utils/sharedFunc";
+import { isComplete, sortDesc } from "../utils/sharedFunc";
 /* 
   📚 Call by globalRouter
 */
@@ -18,10 +18,12 @@ export const handleGetList = async (req, res) => {
     data: { posts },
   } = await getListAPI(); // isComplete: 200, 글 리스트
 
+  const sortPosts = sortDesc(posts, "createdAt", "desc");
+
   if (isComplete(code)) {
     return res.render("post/home", {
       titleName: "HOME",
-      posts,
+      posts: sortPosts,
     });
   } else {
     return res.send("404");
