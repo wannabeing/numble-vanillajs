@@ -4,3 +4,14 @@
   font-weight: bold;
   padding-bottom: 50px;
 }
+// 스피너 스타일링
+.spinner {
+  color: $baseFc;
+  animation: spinner 1.5s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

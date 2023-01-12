@@ -1,0 +1,32 @@
+.upBtn {
+  position: fixed;
+  bottom: 15%;
+  right: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+  }
+}
+.upBtnVisible {
+  animation: invisible 0.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes invisible {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -8,6 +8,7 @@
 @import "./components/shared.scss";
 @import "./components/forms.scss";
 @import "./components/commentsList.scss";
+@import "./components/footer.scss";
 
 // Screens
 @import "./screens/create.scss";
@@ -41,6 +42,7 @@ main {
   background-color: white;
   border-radius: 7px;
   padding: 50px 0;
+  padding-top: 100px;
   margin: 0 auto;
   margin-top: 15px;
   box-shadow: 0 0 16px $inputBorder;
