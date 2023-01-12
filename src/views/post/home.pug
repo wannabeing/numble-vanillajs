@@ -3,7 +3,7 @@ include ../mixins/postList.pug
 
 block body
     .home__grid
-        each post in posts
+        each post in posts.reverse()
             +mixinPostList(post)
         else 
             span.home__empty 게시글이 존재하지 않습니다. ❌

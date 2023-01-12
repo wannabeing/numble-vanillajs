@@ -2,31 +2,31 @@ extends ../inheritance/base.pug
 include ../mixins/commentList.pug
 
 block body 
-    .postDetail
-        img.postDetail__img(src=post.image, alt="글 이미지") 
+    .postDetail(data-postid=post.postId)
+        img.postDetail__img(src=post.image, alt="글 이미지")
         .postDetail__data
             span.postDetail__title=post.title 
             .postDetail__time 
                 span#createdAt=post.createdAt
             .postDetail__content
-                span=post.content 
+                span=post.content
                 .postDetail__btns
                     a.postDetaill__btn(href=`${post.postId}/edit`)
                         i.fa-solid.fa-file-pen
-                    label(data-postId=post.postId).postDetaill__btn#delBtn(for="commentDel") 
-                        i.fa-solid.fa-trash
+                    form#postDelForm(method="POST" action=`/post/${post.postId}/delete?_method=DELETE`)
+                        i#postDelBtn.fa-solid.fa-trash.postDetaill__btn.del_btn
                 .postDetail__commentExplain
                     span 댓글
                     i.fa-solid.fa-comment
-        
-        .postDetail__commentForm
-            form(method="POST" action=`/post/${post.postId}/comment/create`) 
-                input.postDetail__commentForm__input(type="text" name="comment" id="comment" placeholder="댓글을 입력해주세요." required)
-                input.postDetail__commentForm__submit(type="submit" value="댓글입력")
         .postDetaill__commentsList 
             each comment in comments
                 +mixinCommentList(comment, post.postId)
             else 
                 h1 댓글이 없네용 ㅇ_ㅇ
+        .postDetail__commentForm
+            form#commentCreateForm(method="POST" action=`/post/${post.postId}/comment/create`) 
+                input.postDetail__commentForm__input(type="text" name="comment" id="comment" placeholder="댓글을 입력해주세요." required)
+                i#commentCreateBtn.fa-solid.fa-paper-plane
 block scripts 
     script(src="/static/js/detailPost.js") 
+    script(src="/static/js/comment.js")

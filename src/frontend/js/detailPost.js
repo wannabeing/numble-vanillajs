@@ -1,16 +1,10 @@
-const delBtn = document.querySelector("#delBtn"); // 글 삭제 버튼
-const { postid: postId } = delBtn.dataset; // 삭제할 글 ID
+const { postid: postId } = document.querySelector(".postDetail").dataset; // 상세 글 ID
 
-// 🚀 삭제 버튼 클릭했을 때
-delBtn.addEventListener("click", async (event) => {
+const postDelForm = document.querySelector("#postDelForm"); // 상세 글 삭제 폼
+const postDelBtn = document.querySelector("#postDelBtn"); // 상세 글 삭제 버튼
+
+// 🚀 [DELETE] 글 삭제 버튼 클릭했을 때
+postDelBtn.addEventListener("click", async (event) => {
   event.preventDefault();
-
-  const requestUrl = `/post/${postId}/delete`;
-  const { status } = await fetch(requestUrl, {
-    method: "DELETE",
-  });
-  if (status === 200) {
-    window.location.replace("/");
-  } else {
-  }
+  postDelForm.submit(); // 폼 제출
 });

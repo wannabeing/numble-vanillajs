@@ -51,20 +51,14 @@
         margin: 35px 0;
 
         .postDetaill__btn {
+          cursor: pointer;
           background-color: $baseFc;
           padding: 10px;
           border-radius: 7px;
           margin: 0 5px;
         }
-        #delBtn {
+        .del_btn {
           background-color: #c23616;
-        }
-        // 글 삭제 폼 숨기기
-        form {
-          display: none;
-        }
-        label {
-          cursor: pointer;
         }
       }
 
@@ -87,16 +81,43 @@
     margin-bottom: 25px;
   }
   .postDetail__commentForm {
+    position: fixed;
+    bottom: 0;
     display: flex;
-    justify-content: end;
-    width: 90%;
-    max-width: 480px;
-    margin-top: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 0 16px $inputBorder;
     form {
       display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      input {
+        width: 100%;
+        max-width: 640px;
+        border-radius: 25px;
+        padding: 10px;
+        margin: 0;
+        margin-right: 25px;
+      }
+      i {
+        cursor: pointer;
+        padding: 10px;
+        background-color: $baseFc;
+        border-radius: 25px;
+        color: white;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      // 메시지 작성 버튼 숨기기
       .postDetail__commentForm__submit {
-        margin-left: 10px;
-        width: 30%;
+        display: none;
       }
     }
   }

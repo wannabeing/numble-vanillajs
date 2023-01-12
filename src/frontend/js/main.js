@@ -20,14 +20,14 @@ upBtn.addEventListener("click", (event) => {
 // scroll 감지
 addEventListener("scroll", (event) => {
   event.stopPropagation();
-
+  // 시간 초기화
   window.clearTimeout(isScrolling);
-  upBtn.classList.remove("upBtnVisible");
+  // 스크롤 시작하면 업버튼 보이기
+  upBtn.classList.add("upBtnVisible");
 
   // Set a timeout to run after scrolling ends
   isScrolling = setTimeout(function () {
-    // Run the callback
-    console.log("Scrolling has stopped.");
-    upBtn.classList.add("upBtnVisible");
-  }, 100);
+    // 스크롤 멈추면 업버튼 삭제
+    upBtn.classList.remove("upBtnVisible");
+  }, 3000);
 });

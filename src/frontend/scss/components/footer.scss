@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 15%;
   right: 2%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   width: 25px;
@@ -17,16 +17,15 @@
   }
 }
 .upBtnVisible {
-  animation: invisible 0.5s ease-in-out forwards;
-  animation-delay: 1s;
+  display: flex;
+  animation: visible 1s ease-in-out forwards;
 }
 
-@keyframes invisible {
+@keyframes visible {
   from {
-    transform: none;
-    opacity: 1;
+    opacity: 0;
   }
   to {
-    opacity: 0;
+    opacity: 1;
   }
 }

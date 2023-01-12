@@ -13,6 +13,7 @@ server.disable("x-powered-by"); // Express로 서버를 만들었다는 것을 H
 server.use(morgan("dev")); // Logger 미들웨어
 server.use(methodOverride("_method")); // Form에서 patch, delete 사용하기 위한 라이브러리
 server.use(express.urlencoded({ extended: true })); // Form 데이터 인식 및 변환 미들웨어
+server.use(express.json()); // Front -> Server 비동기 통신시, 데이터를 JSON화 하기
 server.set("view engine", "pug"); // PUG로 뷰 엔진 SET
 server.set("views", process.cwd() + "/src/views"); // 뷰 엔진의 경로 SET
 
@@ -23,7 +24,7 @@ server.use("/static", express.static("assets")); // 사용자에게는 static, �
 server.use("/", globalRouter);
 server.use("/post", postRouter);
 // ❌ 404 Error SET
-server.use((req, res) => {
+server.use((_, res) => {
   return res.render("404", {
     titleName: "404 에러",
   });

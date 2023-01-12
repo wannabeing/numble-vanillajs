@@ -5,12 +5,6 @@ block body
         img.editPost__img(src=editPost.image alt="이미지 주소" width="400" height="400")
        
         form.editPost__form(method="POST" action=`/post/${editPost.postId}/edit?_method=PATCH`) 
-            //- input(type="text" id="image" value=editPost.image)
-            //- label(for="title") 글 제목
-            //- input(type="text" id="title" name="title" value=editPost.title)
-            //- label(for="content") 글 내용
-            //- input(type="text" id="content" name="content" value=editPost.content)
-            //- input(type="submit" value="글 수정하기")
             .editPost__title
                 label(for="title") 글 제목
                 img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)

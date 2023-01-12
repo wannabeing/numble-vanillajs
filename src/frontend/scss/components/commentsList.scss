@@ -5,16 +5,15 @@
   width: 100%;
   max-width: 480px;
   font-size: 14px;
+  padding-bottom: 5px;
   border-bottom: 1px solid $inputBorder;
   .comments-mixin__text {
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px;
   }
   .comments-mixin__del {
-    label {
-      cursor: pointer;
-      color: #c23616;
-    }
+    cursor: pointer;
+    color: #c23616;
   }
   .comments-mixin__form {
     display: none;

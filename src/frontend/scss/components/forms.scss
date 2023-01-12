@@ -19,6 +19,9 @@ input {
     background-color: $inputBorder;
     cursor: not-allowed;
   }
+  &:focus {
+    outline: 2px solid $baseFc;
+  }
 }
 input[type="submit"] {
   border: none;
@@ -65,5 +68,8 @@ textarea {
   font-family: "BMJUA";
   &::placeholder {
     color: gray;
+  }
+  &:focus {
+    outline: 2px solid $baseFc;
   }
 }

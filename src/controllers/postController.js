@@ -30,11 +30,11 @@ export const handleGetList = async (req, res) => {
     posts[i].createdAt = displayedAt(posts[i].createdAt);
   }
   // 글 리스트 내림차순 정렬
-  const sortPosts = sortDesc(posts, "createdAt", "desc");
+  //const sortPosts = sortDesc(posts, "createdAt", "desc");
   // 렌더링
   return res.render("post/home", {
     titleName: "HOME",
-    posts: sortPosts,
+    posts,
     isHome: true,
   });
 };
@@ -80,7 +80,7 @@ export const handlePostCreate = async (req, res) => {
   const { url: image } = await getImgAPI(); // API 호출 및 결과 반환 [image: 랜덤 이미지 주소값]
 
   // 글 제목, 내용 둘 중 하나라도 null일 경우
-  if (title === null || content === null) {
+  if (title === null || content === null || image === null) {
     return res.render("404", {
       titleName: "404 에러",
     });
@@ -150,6 +150,7 @@ export const handlePatchEdit = async (req, res) => {
 export const handleDelPost = async (req, res) => {
   const { postId } = req.params; // post ID
   const { code } = await delPostAPI(postId); // API 호출 및 결과 반환 [code: 200]
+
   // API 호출이 정상적이지 않을 경우
   if (!isComplete(code)) {
     return res.render("404", {
