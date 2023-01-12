@@ -16,15 +16,16 @@ block body
                     form#postDelForm(method="POST" action=`/post/${post.postId}/delete?_method=DELETE`)
                         i#postDelBtn.fa-solid.fa-trash.postDetaill__btn.del_btn
                 .postDetail__commentExplain
-                    span 댓글
                     i.fa-solid.fa-comment
-        .postDetaill__commentsList 
+                    span 댓글 (#{comments.length})
+                    
+        .postDetaill__commentsList(data-commentslength=comments.length) 
             each comment in comments
                 +mixinCommentList(comment, post.postId)
             else 
                 h1 댓글이 없네용 ㅇ_ㅇ
         .postDetail__commentForm
-            form#commentCreateForm(method="POST" action=`/post/${post.postId}/comment/create`) 
+            form#commentCreateForm 
                 input.postDetail__commentForm__input(type="text" name="comment" id="comment" placeholder="댓글을 입력해주세요." required)
                 i#commentCreateBtn.fa-solid.fa-paper-plane
 block scripts 

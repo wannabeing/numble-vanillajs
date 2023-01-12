@@ -49,6 +49,6 @@ export const handleDelComment = async (req, res) => {
       titleName: "404 에러",
     });
   }
-  // 렌더링
-  return res.redirect(`/post/${postId}`);
+  // FRONT로 결과 반환 [status: 200]
+  return res.sendStatus(200);
 };
