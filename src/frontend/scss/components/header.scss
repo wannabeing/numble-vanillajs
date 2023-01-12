@@ -13,12 +13,12 @@ header {
 
   .header__logo {
     color: $baseFc;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0 15px;
   }
   .header__title {
     text-align: center;
-    width: 100%;
+    width: 50%;
     max-width: 480px;
     font-weight: bold;
     overflow: hidden; // 을 사용해 영역을 감출 것

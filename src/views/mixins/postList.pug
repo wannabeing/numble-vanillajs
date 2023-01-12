@@ -1,7 +1,7 @@
 mixin mixinPostList(post)
     a(href=`post/${post.postId}`).postList-mixin 
         .postList-mixin__img
-            img(src=post.image alt="게시글 이미지")
+            img.lozad(data-src=post.image alt="게시글 이미지")
         .postList-mixin__contents
             .postList-mixin__title
                 span=post.title 
