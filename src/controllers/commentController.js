@@ -1,4 +1,5 @@
 import { createCommentAPI, delCommentAPI } from "../apis/commentApis";
+import { getPostAPI } from "../apis/postApis";
 import { isComplete } from "../utils/utils";
 
 /* 
@@ -9,6 +10,15 @@ import { isComplete } from "../utils/utils";
 export const handleCreateComment = async (req, res) => {
   const { postId } = req.params; // post ID
   const { comment } = req.body; // 새로 생성할 댓글
+
+  const {
+    data: { comments },
+  } = await getPostAPI(postId); // 댓글 개수 변수
+  if (!comments) {
+    return res.render("404", {
+      titleName: "404 에러",
+    });
+  }
 
   // 댓글 값이 null일 경우
   if (comment === null) {
@@ -34,8 +44,8 @@ export const handleCreateComment = async (req, res) => {
       titleName: "404 에러",
     });
   }
-  // FRONT로 결과 반환 [status: 201], [commentId: 새로 생성한 댓글 ID]
-  return res.status(201).json({ commentId });
+  // FRONT로 결과 반환 [status: 201], [commentId: 새로 생성한 댓글 ID], [commentsLength: 상세 글의 댓글 개수]
+  return res.status(201).json({ commentId, commentsLength: comments.length });
 };
 
 // [❌ DELETE] 댓글 삭제

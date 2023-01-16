@@ -35,7 +35,7 @@ export const createPostAPI = async (newPost) => {
   ).json();
   // 유효하지 않은 요청일 경우
   if (result.code !== 201) {
-    return { code: false };
+    return { code: false, data: { postId: null } };
   }
   return result;
 };

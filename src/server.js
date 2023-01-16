@@ -30,7 +30,8 @@ server.use((_, res) => {
   });
 });
 
+const { SERVER_IP } = process.env;
 // Server Listening
 server.listen(4000, () => {
-  console.log("✅ Server : http://localhost/4000");
+  console.log(`✅ Server : ${SERVER_IP}/4000`);
 });

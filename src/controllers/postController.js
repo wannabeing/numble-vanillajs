@@ -6,7 +6,7 @@ import {
   getListAPI,
   editPostAPI,
 } from "../apis/postApis";
-import { isComplete, sortDesc, displayedAt } from "../utils/utils";
+import { isComplete, displayedAt } from "../utils/utils";
 
 /* 
   📚 Call by globalRouter
@@ -36,6 +36,7 @@ export const handleGetList = async (req, res) => {
     titleName: "HOME",
     posts,
     isHome: true,
+    isRender: false,
   });
 };
 
@@ -92,7 +93,10 @@ export const handlePostCreate = async (req, res) => {
     image,
   };
   // 글 생성 API 호출 및 결과 반환 [code : 201]
-  const { code } = await createPostAPI(newPost);
+  const {
+    code,
+    data: { postId },
+  } = await createPostAPI(newPost);
   // API 호출이 정상적이지 않을 경우
   if (!isComplete(code)) {
     return res.render("404", {
@@ -100,7 +104,7 @@ export const handlePostCreate = async (req, res) => {
     });
   }
   // 렌더링
-  return res.redirect("/");
+  return res.redirect(`/post/${postId}`);
 };
 // [🌐 GET] 글 수정
 export const handleGetEdit = async (req, res) => {

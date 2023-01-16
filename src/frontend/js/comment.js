@@ -7,16 +7,18 @@ const commentDelForm = document.querySelector("#commentDelForm"); // 댓글 삭�
 const commentDelBtns = document.querySelectorAll("#commentDelBtn"); // 모든 댓글 삭제 버튼
 
 // 가짜 댓글 생성 함수
-const createFakeComment = (text, commentId) => {
+const createFakeComment = (text, commentId, commentsLength) => {
   const commentsList = document.querySelector(".postDetaill__commentsList");
 
   const commentsExplain = document.querySelector(
     ".postDetail__commentExplain span"
   );
-  let { commentslength } = commentsList.dataset; // 댓글 개수
-  commentslength *= 1; // 형변환
-  commentslength += 1; // 댓글개수 1 증가
-  commentsExplain.innerText = `댓글 (${commentslength})`;
+  // 첫 댓글일 경우, 댓글 없다는 메시지 삭제
+  if (commentsLength === 0) {
+    commentsList.querySelector("h1").innerText = "";
+  }
+  commentsLength += 1; // 댓글 개수 1 증가
+  commentsExplain.innerText = `댓글 (${commentsLength})`;
 
   const commentsMixin = document.createElement("div");
   commentsMixin.classList.add("comments-mixin");
@@ -65,8 +67,8 @@ const handleCreate = async (event) => {
 
   // 댓글 생성이 성공적으로 됐을 경우
   if (result.status === 201) {
-    const { commentId } = await result.json(); // Server에서 보낸 JSON 데이터
-    createFakeComment(comment, commentId); // 가짜 댓글 생성
+    const { commentId, commentsLength } = await result.json(); // Server에서 보낸 JSON 데이터
+    createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
     commentInput.value = ""; // 댓글창 초기화
   } else {
     window.location.replace("/404");
