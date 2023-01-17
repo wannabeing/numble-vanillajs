@@ -10,7 +10,7 @@ header {
   width: 100%;
   height: 30px;
   margin: 0 auto;
-  padding: 20px 0px;
+  padding: 20px 0;
   background-color: white;
   border-bottom: 2px solid $inputBorder;
   border-radius: 7px;
@@ -40,6 +40,10 @@ header {
   }
   .header__subTitle {
     font-size: 15px;
+    background-color: $baseFc;
+    color: $baseBg;
+    padding: 10px;
     margin-right: 15px;
+    border-radius: 7px;
   }
 }

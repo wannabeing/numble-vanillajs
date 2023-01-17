@@ -1,0 +1,28 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+
+  h1 {
+    font-size: 80px;
+    font-weight: bold;
+  }
+  p {
+    font-size: 25px;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+  a {
+    background-color: $baseFc;
+    padding: 20px;
+    border-radius: 25px;
+    color: $baseBg;
+    font-size: 20px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

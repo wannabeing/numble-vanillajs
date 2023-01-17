@@ -8,10 +8,10 @@ block body
             .editPost__title
                 label(for="title") 글 제목
                 img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)
-                input(type="text" id="title" name="title" placeholder="글 제목을 입력해주세요." required value=editPost.title)
+                input(type="text" id="title" name="title" placeholder="글 제목을 입력해주세요." required minLength=2 value=editPost.title)
             .editPost__content
                 label(for="title") 글 내용
                 img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)
-                textarea(name="content", id="content", cols="30", rows="10" placeholder="글 내용을 입력해주세요." required)=editPost.content
+                textarea(name="content", id="content", cols="30", rows="10" placeholder="글 내용을 입력해주세요." minLength=2 required)=editPost.content
             .editPost__submit
                 input(type="submit" value="글 수정하기")

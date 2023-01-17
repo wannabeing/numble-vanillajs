@@ -8,7 +8,16 @@ const commentInput = document.querySelector("#comment"); // 댓글 인풋창
 const commentDelForm = document.querySelector("#commentDelForm"); // 댓글 삭제 폼
 const commentDelBtns = document.querySelectorAll("#commentDelBtn"); // 모든 댓글 삭제 버튼
 
-// 가짜 댓글 생성 함수
+// ✅ 댓글 검증 핸들러
+const handleValidation = (comment) => {
+  if (comment.length < 2) {
+    Swal.fire("댓글이 너무 짧아요 😅", "최소 2글자 이상 입력해주세요!", "info");
+    return false;
+  } else {
+    return true;
+  }
+};
+// ✅ 가짜 댓글 생성 함수
 const createFakeComment = (text, commentId, commentsLength) => {
   const commentsExplain = document.querySelector(
     ".postDetail__commentExplain span"
@@ -55,23 +64,27 @@ const handleDelete = async (event) => {
 };
 // ✅ 댓글 생성 핸들러
 const handleCreate = async (event) => {
-  const requestUrl = `/post/${postId}/comment/create`;
   const comment = commentInput.value; // 댓글 텍스트
-  const result = await fetch(requestUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ comment }),
-  });
+  const validation = handleValidation(comment); // 댓글 검증
 
-  // 댓글 생성이 성공적으로 됐을 경우
-  if (result.status === 201) {
-    const { commentId, commentsLength } = await result.json(); // Server에서 보낸 JSON 데이터
-    createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
-    commentInput.value = ""; // 댓글창 초기화
-  } else {
-    window.location.replace("/404");
+  if (validation) {
+    const requestUrl = `/post/${postId}/comment/create`;
+    const result = await fetch(requestUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ comment }),
+    });
+
+    // 댓글 생성이 성공적으로 됐을 경우
+    if (result.status === 201) {
+      const { commentId, commentsLength } = await result.json(); // Server에서 보낸 JSON 데이터
+      createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
+      commentInput.value = ""; // 댓글창 초기화
+    } else {
+      window.location.replace("/404");
+    }
   }
 };
 
