@@ -82,11 +82,7 @@ const handleCreate = async (event) => {
     createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
     commentInput.value = ""; // 댓글창 초기화
   } else if (result.status === 400) {
-    Swal.fire(
-      "댓글중복입니다 😅",
-      "중복된 댓글은 입력하실 수 없습니다!",
-      "info"
-    );
+    Swal.fire("중복입니다 😅", "다시 입력해주세요!", "info");
   } else {
     window.location.replace("/404");
   }

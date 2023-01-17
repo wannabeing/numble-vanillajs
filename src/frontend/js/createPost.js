@@ -28,7 +28,7 @@ const handleCraete = async (title, content) => {
   // 글 생성이 성공적으로 됐을 경우
   if (result.status === 201) {
     const { postId } = await result.json(); // Server에서 보낸 JSON 데이터
-    location.replace("/"); // 메인 페이지로 이동
+    window.location.replace("/"); // 메인 페이지로 이동
   }
   // 글 제목이 중복일 경우
   else if (result.status === 400) {
@@ -36,7 +36,7 @@ const handleCraete = async (title, content) => {
   }
   // 유효하지않은 요청이였을 경우
   else {
-    location.replace("/404");
+    window.location.replace("/404");
   }
 };
 
