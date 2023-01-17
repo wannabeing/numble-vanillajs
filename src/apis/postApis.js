@@ -33,11 +33,18 @@ export const createPostAPI = async (newPost) => {
       body: JSON.stringify(newPost),
     })
   ).json();
-  // 유효하지 않은 요청일 경우
-  if (result.code !== 201) {
-    return { code: false, data: { postId: null } };
+
+  switch (result.code) {
+    // 성공적으로 생성했을 경우
+    case 201:
+      return result;
+    // 중복된 글일 경우
+    case 400:
+      return { code: 400, data: { postId: null } };
+    // 유효하지 않은 요청일 경우
+    default:
+      return { code: false, data: { postId: null } };
   }
-  return result;
 };
 
 // 🚀 글 수정하기

@@ -1,5 +1,7 @@
 const { postid: postId } = document.querySelector(".postDetail").dataset; // 상세 글 ID
 
+const commentsList = document.querySelector(".postDetaill__commentsList"); // 댓글 목록 div
+
 const commentCreateBtn = document.querySelector("#commentCreateBtn"); // 댓글 생성 버튼
 const commentInput = document.querySelector("#comment"); // 댓글 인풋창
 
@@ -8,8 +10,6 @@ const commentDelBtns = document.querySelectorAll("#commentDelBtn"); // 모든 �
 
 // 가짜 댓글 생성 함수
 const createFakeComment = (text, commentId, commentsLength) => {
-  const commentsList = document.querySelector(".postDetaill__commentsList");
-
   const commentsExplain = document.querySelector(
     ".postDetail__commentExplain span"
   );

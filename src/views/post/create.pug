@@ -3,7 +3,7 @@ extends ../inheritance/base.pug
 block body 
     .postCreate
         button.postCreate__imgBtn#imgBtn  랜덤 이미지 추가하기
-        form.postCreate__form(method="post")
+        form.postCreate__form
             .postCreate__title
                 label(for="title") 글 제목
                 img(src="https://www.wiselycompany.com/custom/img/icon_require.png" alt="필수" width=10 height=10)
@@ -15,4 +15,5 @@ block body
             .postCreate__submit
                 input#createBtn(type="submit" value="글 작성하기" disabled=true)
 block scripts 
-    script(src="/static/js/createPost.js") 
+    script(src="/static/js/createPost.js")
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

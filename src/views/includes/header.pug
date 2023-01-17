@@ -6,7 +6,7 @@ header
         a(href=`/post/${editPost.postId}`).header__logo
             i(title="원래 글로 이동하기").fa-solid.fa-arrow-left
     else 
-        a(href="/").header__logo
+        a#backBtn(href="javascript:history.back();").header__logo
             i(title="뒤로 이동하기").fa-solid.fa-arrow-left
     h1.header__title=titleName
     if isHome
@@ -15,4 +15,3 @@ header
     else
         a(href="/")
             p(title="메인 페이지로 이동하기").header__subTitle HPNY 2023
-            

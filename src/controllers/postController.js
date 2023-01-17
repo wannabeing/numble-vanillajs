@@ -80,7 +80,7 @@ export const handlePostCreate = async (req, res) => {
   const { title, content } = req.body; // 폼 데이터 [title: 글 제목], [content: 글 내용]
   const { url: image } = await getImgAPI(); // API 호출 및 결과 반환 [image: 랜덤 이미지 주소값]
 
-  // 글 제목, 내용 둘 중 하나라도 null일 경우
+  // 글 제목/내용/이미지가 null일 경우
   if (title === null || content === null || image === null) {
     return res.render("404", {
       titleName: "404 에러",
@@ -97,14 +97,20 @@ export const handlePostCreate = async (req, res) => {
     code,
     data: { postId },
   } = await createPostAPI(newPost);
-  // API 호출이 정상적이지 않을 경우
-  if (!isComplete(code)) {
-    return res.render("404", {
-      titleName: "중복된 글입니다.",
-    });
+
+  switch (code) {
+    // 글 생성
+    case 201:
+      return res.status(201).json({ postId });
+    // 글 중복
+    case 400:
+      return res.sendStatus(400);
+    // 이외
+    default:
+      return res.render("404", {
+        titleName: "404 에러",
+      });
   }
-  // 렌더링
-  return res.redirect(`/post/${postId}`);
 };
 // [🌐 GET] 글 수정
 export const handleGetEdit = async (req, res) => {
