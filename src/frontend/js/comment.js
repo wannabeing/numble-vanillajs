@@ -60,36 +60,45 @@ const handleDelete = async (event) => {
   // 댓글 삭제가 성공적으로 됐을 경우
   if (status === 200) {
     window.location.reload();
+  } else {
+    Swal.fire("다시 시도해주세요 😅", "댓글을 삭제할 수 없습니다!", "error");
   }
 };
 // ✅ 댓글 생성 핸들러
 const handleCreate = async (event) => {
   const comment = commentInput.value; // 댓글 텍스트
-  const validation = handleValidation(comment); // 댓글 검증
-
-  if (validation) {
-    const requestUrl = `/post/${postId}/comment/create`;
-    const result = await fetch(requestUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ comment }),
-    });
-
-    // 댓글 생성이 성공적으로 됐을 경우
-    if (result.status === 201) {
-      const { commentId, commentsLength } = await result.json(); // Server에서 보낸 JSON 데이터
-      createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
-      commentInput.value = ""; // 댓글창 초기화
-    } else {
-      window.location.replace("/404");
-    }
+  const requestUrl = `/post/${postId}/comment/create`;
+  const result = await fetch(requestUrl, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ comment }),
+  });
+  // 댓글 생성이 성공적으로 됐을 경우
+  if (result.status === 201 || result.status === 200) {
+    const { commentId, commentsLength } = await result.json(); // Server에서 보낸 JSON 데이터
+    createFakeComment(comment, commentId, commentsLength); // 가짜 댓글 생성
+    commentInput.value = ""; // 댓글창 초기화
+  } else if (result.status === 400) {
+    Swal.fire(
+      "댓글중복입니다 😅",
+      "중복된 댓글은 입력하실 수 없습니다!",
+      "info"
+    );
+  } else {
+    window.location.replace("/404");
   }
 };
 
 // 🚀 [POST] 댓글 생성 버튼 클릭했을 때
-commentCreateBtn.addEventListener("click", handleCreate);
+commentCreateBtn.addEventListener("click", async () => {
+  if (handleValidation(commentInput.value)) {
+    await handleCreate();
+  }
+  commentInput.value = "";
+});
 // 🚀 [DELETE] 댓글 삭제 버튼 클릭했을 때
 if (commentDelBtns) {
   commentDelBtns.forEach((delBtn) => {

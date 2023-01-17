@@ -15,16 +15,12 @@ export const handleCreateComment = async (req, res) => {
     data: { comments },
   } = await getPostAPI(postId); // 댓글 개수 변수
   if (!comments) {
-    return res.render("404", {
-      titleName: "404 에러",
-    });
+    return res.sendStatus(404);
   }
 
   // 댓글 값이 null일 경우
   if (comment === null) {
-    return res.render("404", {
-      titleName: "404 에러",
-    });
+    return res.sendStatus(404);
   }
   // 생성할 댓글 정보
   const commentInfo = {
@@ -40,9 +36,7 @@ export const handleCreateComment = async (req, res) => {
 
   // API 호출이 정상적이지 않을 경우
   if (!isComplete(code)) {
-    return res.render("404", {
-      titleName: "404 에러",
-    });
+    return res.sendStatus(400);
   }
   // FRONT로 결과 반환 [status: 201], [commentId: 새로 생성한 댓글 ID], [commentsLength: 상세 글의 댓글 개수]
   return res.status(201).json({ commentId, commentsLength: comments.length });
@@ -55,9 +49,7 @@ export const handleDelComment = async (req, res) => {
 
   // API 호출이 정상적이지 않을 경우
   if (!isComplete(code)) {
-    return res.render("404", {
-      titleName: "404 에러",
-    });
+    return res.sendStatus(404);
   }
   // FRONT로 결과 반환 [status: 200]
   return res.sendStatus(200);

@@ -82,9 +82,7 @@ export const handlePostCreate = async (req, res) => {
 
   // 글 제목/내용/이미지가 null일 경우
   if (title === null || content === null || image === null) {
-    return res.render("404", {
-      titleName: "404 에러",
-    });
+    return res.sendStatus(404);
   }
   // 새로 생성할 글
   const newPost = {
@@ -105,11 +103,9 @@ export const handlePostCreate = async (req, res) => {
     // 글 중복
     case 400:
       return res.sendStatus(400);
-    // 이외
+    // 이외의 경우
     default:
-      return res.render("404", {
-        titleName: "404 에러",
-      });
+      return res.sendStatus(404);
   }
 };
 // [🌐 GET] 글 수정
