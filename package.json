@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "numble challenge",
   "scripts": {
+    "pm": "pm2 start ecosystem.config.js",
+    "kill": "pm2 kill",
     "start": "node build/server.js",
     "build": "npm run buildServer && npm run buildAssets",
     "buildServer": "babel src -d build --ignore src/frontend",
