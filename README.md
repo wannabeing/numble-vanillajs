@@ -15,7 +15,7 @@
 
 - **프론트엔드**: HTML5, SASS, PUG
 - **백엔드**: NodeJS, Express
-- **배포**: NaverCloud, Linux
+- **배포**: NaverCloud, Ubuntu
 - **라이브러리**: npm, webpack, babel, pm2 등
 
 ---
